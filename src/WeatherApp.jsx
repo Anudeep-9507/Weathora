@@ -37,6 +37,7 @@ export default function WeatherApp(){
                 overflow: "hidden"
             }}>
                 <h2 className="weathora-title">Weathora</h2>
+                <p className="tagline">— Forecasting the moment</p>
                 <SearchBox updateInfo={updateInfo}/>
                 <InfoBox info={weatherInfo}/>
             </div>

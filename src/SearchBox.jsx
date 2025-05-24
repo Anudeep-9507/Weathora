@@ -51,6 +51,7 @@ export default function SearchBox({updateInfo}){
         console.log(city);
         let newInfo=await(getWeatherInfo());
         updateInfo(newInfo);
+        setError(false); //Reset error state after successful fetch
         }catch(err){
             setError(true);
         }

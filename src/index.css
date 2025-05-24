@@ -91,9 +91,18 @@ button:focus-visible {
   background-clip: text;
   text-fill-color: transparent;
   text-shadow: 0 4px 24px rgba(0, 0, 0, 0.25), 0 1.5px 0 #fff;
-  margin-bottom: 28px;
+  margin-bottom: 8px;
   margin-top: 10px;
   font-family: 'Poppins', Arial, sans-serif;
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  user-select: none;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.05em;
+  margin-bottom: 28px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
   user-select: none;
 }
