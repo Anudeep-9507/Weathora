@@ -5,6 +5,10 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 
 export default function InfoBox({info}) {
+    // If there's no city data, don't show the card
+    if (!info.city) {
+        return null;
+    }
 
     const HOT_URL="https://images.unsplash.com/photo-1592471396685-06e0da02d03c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzZ8fHN1bm55JTIwY2xpbWF0ZXxlbnwwfHwwfHx8MA%3D%3D";
     const COLD_URL="https://images.unsplash.com/photo-1465220183275-1faa863377e3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c25vdyUyMG1vdW50YWluc3xlbnwwfHwwfHx8MA%3D%3D";

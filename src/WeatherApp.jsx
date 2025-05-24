@@ -3,22 +3,26 @@ import SearchBox from "./SearchBox";
 import BackgroundVideo from "./BackgroundVideo";
 import { useState } from "react";
 
+const defaultBackgroundUrl = "https://res.cloudinary.com/dfkfysygf/video/upload/v1748077339/videoplayback_1_uy1icf.webm"; 
 export default function WeatherApp(){
     let [weatherInfo, setWeatherInfo]= useState({
-        city: "Mumbai",
-        temp: 20,
-        Min_temp: 19,
-        Max_temp: 26,
-        humidity: 32,
-        feels_like: 35,
-        weather: "haze",
+        city: "",
+        temp: null,
+        Min_temp: null,
+        Max_temp: null,
+        humidity: null,
+        feels_like: null,
+        weather: "",
     });
     let updateInfo=(newInfo)=>{
         setWeatherInfo(newInfo);
     }
     return(
         <>
-            <BackgroundVideo weatherInfo={weatherInfo} />
+            <BackgroundVideo 
+                weatherInfo={weatherInfo} 
+                defaultVideoUrl={defaultBackgroundUrl}
+            />
             <div style={{
                 textAlign: "center",
                 position: "relative",

@@ -7,10 +7,16 @@ const videoUrls = {
     rain: "https://res.cloudinary.com/dfkfysygf/video/upload/v1748066582/videoplayback_4_jf9usa.mp4"
 };
 
-export default function BackgroundVideo({ weatherInfo }) {
-    const [videoUrl, setVideoUrl] = useState(videoUrls.hot);
+export default function BackgroundVideo({ weatherInfo, defaultVideoUrl }) {
+    const [videoUrl, setVideoUrl] = useState(defaultVideoUrl);
 
     useEffect(() => {
+        // If there's no city data, use the default video
+        if (!weatherInfo.city) {
+            setVideoUrl(defaultVideoUrl);
+            return;
+        }
+
         const temp = Number(weatherInfo.temp);
         const humidity = Number(weatherInfo.humidity);
         if (humidity > 90) {
@@ -20,7 +26,7 @@ export default function BackgroundVideo({ weatherInfo }) {
         } else {
             setVideoUrl(videoUrls.cold);
         }
-    }, [weatherInfo]);
+    }, [weatherInfo, defaultVideoUrl]);
 
     return (
         <div className="background-video-container">
