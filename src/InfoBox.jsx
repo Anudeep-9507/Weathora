@@ -24,15 +24,38 @@ export default function InfoBox({info}) {
                 <Card sx={{ maxWidth: 345 }}>
                     <CardMedia
                         sx={{ height: 140 }}
-                        image={info.humidity > 90 ? RAIN_URL : info.temp > 15 ? HOT_URL : COLD_URL}  
-                    />
+                      image={
+                            info.temp <= 0
+                                ? COLD_URL
+                                : info.humidity >= 80
+                                ? RAIN_URL
+                                : info.temp > 15
+                                ? HOT_URL
+                                : COLD_URL
+                            }
+                            />
+
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div">
-                            {info.city}  <img
-                                src={info.humidity > 90 ? RAIN_ICON : info.temp > 15 ? HOT_ICON : COLD_ICON}
+                            {info.city}
+                              <img
+                              src={
+                                    info.temp <= 0
+                                        ? COLD_ICON
+                                        : info.humidity >= 80
+                                        ? RAIN_ICON
+                                        : info.temp > 15
+                                        ? HOT_ICON
+                                        : COLD_ICON
+                                    }
                                 alt="weather icon"
-                                style={{ width: "30px", height: "30px", marginLeft: "10px", verticalAlign: "middle" }}
-                            />
+                                style={{
+                                    width: "30px",
+                                    height: "30px",
+                                    marginLeft: "10px",
+                                    verticalAlign: "middle",
+                                }}
+                                />
                         </Typography>
                         <Typography variant="body2" color='text.secondary' component={"span"}>
                             <p className="temp-text">Temperature = {info.temp}&deg;C </p>

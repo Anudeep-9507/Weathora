@@ -19,13 +19,17 @@ export default function BackgroundVideo({ weatherInfo, defaultVideoUrl }) {
 
         const temp = Number(weatherInfo.temp);
         const humidity = Number(weatherInfo.humidity);
-        if (humidity > 90) {
-            setVideoUrl(videoUrls.rain);
-        } else if (temp > 15) {
-            setVideoUrl(videoUrls.hot);
-        } else {
-            setVideoUrl(videoUrls.cold);
-        }
+
+            if (temp <= 0) {
+            setVideoUrl(videoUrls.cold); 
+            } else if (humidity >= 80) {
+            setVideoUrl(videoUrls.rain); 
+            } else if (temp > 15) {
+            setVideoUrl(videoUrls.hot); 
+            } else {
+            setVideoUrl(videoUrls.cold); 
+            }
+
     }, [weatherInfo, defaultVideoUrl]);
 
     return (
